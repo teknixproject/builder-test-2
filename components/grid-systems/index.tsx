@@ -198,7 +198,11 @@ const GridSystemContainer = ({ page, deviceType, isBody, isHeader, isFooter }: G
   }, [refreshKey]); // ✅
 
   const content = (
-    <div className="mx-auto flex justify-center h-full w-full">
+    <CsContainerRenderSlice
+      className="mx-auto flex justify-center h-full w-full"
+      style={_.get(config, 'style') as any}
+      styledComponentCss={config?.styledComponentCss}
+    >
       {config?.childs ? (
         <div
           className="w-full flex flex-col justify-center flex-wrap"
@@ -210,7 +214,7 @@ const GridSystemContainer = ({ page, deviceType, isBody, isHeader, isFooter }: G
       ) : (
         <NotFound />
       )}
-    </div>
+    </CsContainerRenderSlice>
   );
 
   useEffect(() => {
@@ -235,7 +239,7 @@ const GridSystemContainer = ({ page, deviceType, isBody, isHeader, isFooter }: G
   }, [deviceType]);
 
   if (!MonacoContainerRoot || typeof MonacoContainerRoot !== 'function') {
-    return <div>{content}</div>;
+    return <>{content}</>;
   }
 
   return (
