@@ -19,4 +19,5 @@ export const components = {
   dropdown: dynamic(() => import('./Dropdown')),
   collapse: dynamic(() => import('./Collapse')),
   bahu_bali_about: dynamic(() => import("./BahuBaliAbout")),
+  text_gradient: dynamic(() => import("./TextGradient")),
 };
