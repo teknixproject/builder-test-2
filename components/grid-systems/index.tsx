@@ -112,6 +112,7 @@ export const RenderSlice: React.FC<TRenderSlice> = ({ slice, isMenu }) => {
       className={`${sliceClasses} ${_.get(styleSlice, 'className', '')} `}
       style={inlineStyles}
       is-active={!!isActive == true ? 'true' : 'false'}
+      styledComponentCss={sliceRef?.styledComponentCss}
     >
       {content}
     </CsContainerRenderSlice>
